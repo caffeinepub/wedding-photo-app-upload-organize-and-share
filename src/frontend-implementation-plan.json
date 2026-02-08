@@ -1,0 +1,66 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "In-app deployment link sharing and troubleshooting guidance (frontend)",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "summary": "Add a global header action to copy the current live app URL to the clipboard with a toast confirmation.",
+      "acceptanceCriteria": [
+        "The header includes a clearly labeled action (e.g., “Copy app link”) available to all users (signed in or not).",
+        "Clicking the action copies a shareable URL representing the current app entrypoint (including any required hash-based routing) to the clipboard.",
+        "After copying, the UI shows a non-intrusive confirmation message in English (e.g., toast) indicating the link was copied.",
+        "The copied link works when opened in a new browser session and loads the app successfully."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/appLink.ts",
+          "operation": "create",
+          "description": "Add a small utility to compute a shareable “current app entrypoint” URL from window.location (including any hash-based routing if present) and to expose a helper used by UI copy actions."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a clearly labeled “Copy app link” action visible to all users; on click, use the new app link utility and navigator.clipboard to copy the URL, then show an English success/failure toast using the existing Sonner/toast pattern. Use shadcn-ui composed components (e.g., Button) rather than editing files under frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Add an in-app Help / Troubleshooting section accessible from the main UI that explains what to do if the app fails to load after deploy and how to copy the app link.",
+      "acceptanceCriteria": [
+        "There is a visible place in the UI to access troubleshooting guidance (e.g., footer link, header menu item, or a section on the album list page).",
+        "The guidance includes: (1) how to copy the app link using the new UI action, (2) a suggestion to hard refresh, and (3) a note to retry later if the canister is upgrading.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TroubleshootingDialog.tsx",
+          "operation": "create",
+          "description": "Create a small Help / Troubleshooting dialog component containing English guidance: how to use “Copy app link”, how to hard refresh (include common shortcuts), and a note that upgrades may temporarily prevent loading and to retry later. Include an optional “Copy app link” button inside the dialog that reuses the shared app link utility and shows a toast. Compose shadcn-ui Dialog/Button components; do not edit frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Wire the Help / Troubleshooting entry point into the main UI (e.g., a “Help” button/link in the header) that opens the TroubleshootingDialog. Compose shadcn-ui components; do not edit frontend/src/components/ui. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Add repository deployment documentation with deterministic steps for deploy and for finding the deployed frontend URL and canister IDs (frontend doc placement).",
+      "acceptanceCriteria": [
+        "A new markdown doc exists in the repo (e.g., DEPLOYMENT.md) that includes the commands/steps to deploy with dfx and how to discover the frontend URL after deployment.",
+        "The doc explains where canister IDs are found after deploy and how to verify the app is reachable.",
+        "No secrets or environment-specific credentials are added to the repo."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "create",
+          "description": "Add a deterministic deployment/troubleshooting markdown document (placed under frontend/ due to frontend-only plan constraints) describing: local deploy steps, prod deploy steps, how to find the deployed frontend URL, where canister IDs are recorded after deploy, and how to verify reachability; ensure no secrets/credentials are included."
+        }
+      ]
+    }
+  ]
+}

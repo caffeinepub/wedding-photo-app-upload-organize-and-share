@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Build an app for managing and sharing wedding photos.",
+  "architectural_notes": [],
+  "known_issues": [
+    "Deployment/redeploy attempt failed with a deployment error; user requests another deploy to get a fresh live link."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-coherent-wedding-themed-visual-design-system-for-the-app-colors-typography-spacing-component-styling-and-apply-it-consistently-across-all-screens-using-tailwind-existing-ui-components-no-blue-purple-dominant-palette-unless-needed-for-contrast",
+      "title": "Create a coherent wedding-themed visual design system for the app (colors, typography, spacing, component styling) and apply it consistently across all screens using Tailwind + existing UI components (no blue/purple-dominant palette unless needed for contrast).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-internet-identity-sign-in-and-show-authenticated-state-in-the-ui-signed-in-principal-sign-out-gating-photo-management-features-upload-album-creation-share-settings-behind-authentication",
+      "title": "Implement Internet Identity sign-in and show authenticated state in the UI (signed in principal / sign out), gating photo management features (upload, album creation, share settings) behind authentication.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-photo-upload-ux-allow-authenticated-users-to-select-one-or-multiple-images-show-progress-status-per-file-and-add-the-uploaded-photos-to-a-selected-album-or-a-default-album-if-none-selected",
+      "title": "Build photo upload UX: allow authenticated users to select one or multiple images, show progress/status per file, and add the uploaded photos to a selected album (or a default album if none selected).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-album-and-gallery-ui-album-list-screen-album-detail-screen-with-responsive-photo-grid-photo-viewer-modal-page-next-previous-and-basic-photo-metadata-display-caption-upload-date-optional-download-button",
+      "title": "Build album and gallery UI: album list screen, album detail screen with responsive photo grid, photo viewer modal/page (next/previous), and basic photo metadata display (caption, upload date, optional download button).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-sharing-allow-authenticated-users-to-create-and-revoke-public-share-links-for-an-album-read-only-public-viewers-can-open-a-share-url-to-browse-that-album-without-signing-in",
+      "title": "Implement sharing: allow authenticated users to create and revoke public share links for an album (read-only). Public viewers can open a share URL to browse that album without signing in.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-organization-features-allow-authenticated-users-to-set-edit-album-name-set-photo-captions-and-reorder-photos-within-an-album-simple-up-down-or-drag-and-drop",
+      "title": "Add basic organization features: allow authenticated users to set/edit album name, set photo captions, and reorder photos within an album (simple up/down or drag-and-drop).",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-core-ux-states-and-safety-loading-skeletons-spinners-for-album-photo-queries-empty-states-no-albums-no-photos-error-toasts-messages-for-failed-uploads-queries-and-confirm-dialogs-for-destructive-actions-delete-photo-album-revoke-share",
+      "title": "Add core UX states and safety: loading skeletons/spinners for album/photo queries, empty states (no albums, no photos), error toasts/messages for failed uploads/queries, and confirm dialogs for destructive actions (delete photo/album, revoke share).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-required-static-brand-assets-and-render-them-in-the-ui-store-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend",
+      "title": "Generate required static brand assets and render them in the UI (store under frontend/public/assets/generated and reference them directly from the frontend).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-in-app-way-for-users-to-obtain-and-copy-the-current-live-app-url-the-deployment-link-so-the-link-can-be-shared-without-relying-on-past-chat-messages",
+      "title": "Add an in-app way for users to obtain and copy the current live app URL (the deployment link) so the link can be shared without relying on past chat messages.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-small-help-troubleshooting-section-accessible-from-the-main-ui-that-explains-in-english-what-to-do-if-the-app-fails-to-load-after-a-deploy-redeploy-and-how-to-retrieve-copy-the-current-app-link",
+      "title": "Add a small “Help / Troubleshooting” section accessible from the main UI that explains, in English, what to do if the app fails to load after a deploy/redeploy and how to retrieve/copy the current app link.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-repository-documentation-file-with-deterministic-steps-for-local-prod-deployment-and-for-finding-the-deployed-frontend-url-and-canister-ids",
+      "title": "Add a repository documentation file with deterministic steps for local/prod deployment and for finding the deployed frontend URL and canister IDs.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create an app for wedding photos (upload, organize, and share wedding photo collection).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Add backend data models and APIs to store wedding photo metadata and image blobs in the single Motoko actor, including: albums, photos (filename, contentType, byteSize, createdAt, optional caption), and album membership/order.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Wedding photo app: upload, organize, and share",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

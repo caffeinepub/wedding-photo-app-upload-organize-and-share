@@ -1,0 +1,87 @@
+{
+  "kind": "build_request",
+  "title": "Add in-app deployment link sharing and deployment troubleshooting guidance",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Add an in-app way for users to obtain and copy the current live app URL (the deployment link) so the link can be shared without relying on past chat messages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-2",
+          "msg-3",
+          "msg-4"
+        ],
+        "quotes": [
+          "Deploy",
+          "Provide app download link",
+          "Send the link",
+          "Deploy the fresh link"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The header includes a clearly labeled action (e.g., “Copy app link”) available to all users (signed in or not).",
+        "Clicking the action copies a shareable URL representing the current app entrypoint (including any required hash-based routing) to the clipboard.",
+        "After copying, the UI shows a non-intrusive confirmation message in English (e.g., toast) indicating the link was copied.",
+        "The copied link works when opened in a new browser session and loads the app successfully."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Add a small “Help / Troubleshooting” section accessible from the main UI that explains, in English, what to do if the app fails to load after a deploy/redeploy and how to retrieve/copy the current app link.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-4"
+        ],
+        "quotes": [
+          "Deploy",
+          "🙏 Something went wrong with the deployment\n\n Deployment error"
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a visible place in the UI to access troubleshooting guidance (e.g., footer link, header menu item, or a section on the album list page).",
+        "The guidance includes: (1) how to copy the app link using the new UI action, (2) a suggestion to hard refresh, and (3) a note to retry later if the canister is upgrading.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Add a repository documentation file with deterministic steps for local/prod deployment and for finding the deployed frontend URL and canister IDs.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1",
+          "msg-4"
+        ],
+        "quotes": [
+          "Deploy",
+          "🙏 Something went wrong with the deployment\n\n Deployment error"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new markdown doc exists in the repo (e.g., DEPLOYMENT.md) that includes the commands/steps to deploy with dfx and how to discover the frontend URL after deployment.",
+        "The doc explains where canister IDs are found after deploy and how to verify the app is reachable.",
+        "No secrets or environment-specific credentials are added to the repo."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (read-only Shadcn components); compose them instead.",
+    "Do not edit immutable hook/bootstrap files: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx.",
+    "Backend must remain a single Motoko actor in backend/main.mo; only add backend changes if required for the deployment documentation, not for new product features.",
+    "Use English for any user-facing text."
+  ],
+  "nonGoals": [
+    "Actually performing a deployment from within the app UI (deployment is handled by the build/deploy platform tooling).",
+    "Producing a native downloadable app binary (APK/IPA/EXE).",
+    "Adding third-party hosting, external databases, or non-Internet-Identity authentication."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

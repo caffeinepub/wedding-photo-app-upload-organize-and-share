@@ -1,0 +1,67 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-an-in-app-way-for-users-to-obtain-and-copy-the-current-live-app-url-the-deployment-link-so-the-link-can-be-shared-without-relying-on-past-chat-messages",
+      "featureTitle": "Add an in-app way for users to obtain and copy the current live app URL (the deployment link) so the link can be shared without relying on past chat messages.",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/utils/appLink.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-small-help-troubleshooting-section-accessible-from-the-main-ui-that-explains-in-english-what-to-do-if-the-app-fails-to-load-after-a-deploy-redeploy-and-how-to-retrieve-copy-the-current-app-link",
+      "featureTitle": "Add a small “Help / Troubleshooting” section accessible from the main UI that explains, in English, what to do if the app fails to load after a deploy/redeploy and how to retrieve/copy the current app link.",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/TroubleshootingDialog.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-repository-documentation-file-with-deterministic-steps-for-local-prod-deployment-and-for-finding-the-deployed-frontend-url-and-canister-ids",
+      "featureTitle": "Add a repository documentation file with deterministic steps for local/prod deployment and for finding the deployed frontend URL and canister IDs.",
+      "files": [
+        "frontend/DEPLOYMENT.md"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T11:16:59.988Z",
+  "summary": "Implemented an in-app “Copy App Link” action in the header with toast feedback, added a Help/Troubleshooting dialog with guidance (copy link, hard refresh, upgrade downtime), added a URL-copy utility, and added a DEPLOYMENT.md file (content not fully verifiable due to truncation).",
+  "missing_requirements": [
+    {
+      "id": "REQ-12",
+      "requirement": "Deployment documentation must include deterministic steps/commands for local/prod deployment with dfx, how to discover the deployed frontend URL after deployment, where canister IDs are found after deploy, and how to verify reachability.",
+      "reason": "A new markdown doc exists, but the diff summary only shows the beginning of DEPLOYMENT.md (prerequisites and start of local deployment). The required sections about discovering the frontend URL, locating canister IDs, and verifying reachability are not present in the provided (truncated) evidence, so implementation cannot be confirmed from the diff summary alone.",
+      "evidence": [
+        "frontend/DEPLOYMENT.md (truncated)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend Motoko actor changes not clearly related to deployment-link sharing, troubleshooting UI, or deployment documentation.",
+      "reason": "The BuildRequest does not require backend feature changes (and explicitly constrains backend changes to only what’s required for deployment documentation). The diff shows backend/main.mo was modified, but the visible snippet contains general app logic/types and does not show deployment-doc-related changes, suggesting potentially unrequested work (cannot be fully verified due to truncation).",
+      "evidence": [
+        "backend/main.mo (truncated)"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/DEPLOYMENT.md",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/TroubleshootingDialog.tsx",
+    "frontend/src/utils/appLink.ts",
+    "project_state.json"
+  ]
+}
